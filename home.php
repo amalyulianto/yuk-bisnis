@@ -1,11 +1,11 @@
 <?php include 'php/config.php' ?>
 <style>
-    span.float-right.summary_icon {
+    /* span.float-right.summary_icon {
         font-size: 3rem;
         position: absolute;
         right: 1rem;
         color: #ffffff96;
-    }
+    } */
 
     .imgs {
         margin: .5em;
@@ -46,55 +46,53 @@
     }
 </style>
 
-<div class="containe-fluid">
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1><?php echo "Welcome back " . $_SESSION['login_name'] . "!"  ?></h1>
+
+        </div>
+
+    </div>
+
+    <ul class="box-info">
+        <li>
+            <i class='bx bxs-group'></i>
+            <span class="text">
+                <h3><?php echo $conn->query("SELECT * FROM users")->num_rows; ?></h3>
+                <p>Users</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-chat'></i>
+            <span class="text">
+                <h3> <?php echo $conn->query("SELECT * FROM topics")->num_rows; ?></h3>
+                <p>Topics</p>
+            </span>
+        </li>
+        <li>
+            <i class='bx bxs-tag'></i>
+            <span class="text">
+                <h3><?php echo $conn->query("SELECT * FROM categories")->num_rows; ?></h3>
+                <p>Tags</p>
+            </span>
+        </li>
+    </ul>
+
+
+
+</main>
+
+</main>
+
+
+
+<div class="container-fluid">
     <div class="row mt-3 ml-3 mr-3">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <?php echo "Welcome back " . $_SESSION['login_name'] . "!"  ?>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body bg-primary">
-                                    <div class="card-body text-white">
-                                        <span class="float-right summary_icon"><i class="fa fa-users"></i></span>
-                                        <h4><b>
-                                                <?php echo $conn->query("SELECT * FROM users")->num_rows; ?>
-                                            </b></h4>
-                                        <p><b>Users</b></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body bg-info">
-                                    <div class="card-body text-white">
-                                        <span class="float-right summary_icon"><i class="fa fa-comments"></i></span>
-                                        <h4><b>
-                                                <?php echo $conn->query("SELECT * FROM topics")->num_rows; ?>
-                                            </b></h4>
-                                        <p><b>Forum Topics</b></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body bg-warning">
-                                    <div class="card-body text-white">
-                                        <span class="float-right summary_icon"><i class="fa fa-tags"></i></span>
-                                        <h4><b>
-                                                <?php echo $conn->query("SELECT * FROM categories")->num_rows; ?>
-                                            </b></h4>
-                                        <p><b>Tags</b></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
 
                     <hr class="divider" style="max-width: 100%">
                     <h4><i class="fa fa-tags text-primary"></i> Tags</h4>
